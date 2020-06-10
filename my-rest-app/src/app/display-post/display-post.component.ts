@@ -7,13 +7,16 @@ import { UserDataService } from '../services/user-data.service';
   styleUrls: ['./display-post.component.scss']
 })
 export class DisplayPostComponent implements OnInit {
+  private dataToDisplay: any ;
 
-  constructor( public userData: UserDataService) { }
+  constructor( public userData: UserDataService) {
+   this.dataToDisplay = [];
+  }
 
   async ngOnInit(){
+  this.dataToDisplay = await this.userData.getUserData();
+  console.log('test',this.dataToDisplay);
 
-  const userToDisplay = await this.userData.getUserData();
-  console.log(userToDisplay);
   }
 
 }
