@@ -15,8 +15,7 @@ export class DisplayPostComponent implements OnInit {
 
   async ngOnInit(){
   this.dataToDisplay = await this.userData.getUserData();
-  console.log('test',this.dataToDisplay);
-
-  }
+  console.log('test', this.dataToDisplay);
+ }
 
 }
