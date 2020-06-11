@@ -19,12 +19,20 @@ export class PostDetailComponent implements OnInit {
   title: FormControl;
   userId: FormControl;
   body: FormControl;
+  idOfUser: string ;
+  isPostUpdate: boolean;
 
-  constructor( private route: ActivatedRoute) { }
+  constructor( private route: ActivatedRoute) {
+    this.isPostUpdate = false ;
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
     console.log(params);
+    if (params && params.id){
+      this.idOfUser = params.id;
+      this.isPostUpdate = true ;
+    }
     });
     this.createFormControlsPostDetails();
     this.createFormGroupPostDetails();
@@ -58,5 +66,7 @@ export class PostDetailComponent implements OnInit {
     }
   }
 
+  getInfoPost(){
 
+  }
 }
