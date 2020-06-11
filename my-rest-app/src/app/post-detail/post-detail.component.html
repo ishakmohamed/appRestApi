@@ -14,27 +14,22 @@
           <label>Title</label>
           <input type="text"
                  class="form-control"
-                 formControlName="userId">
+                 formControlName="title">
       
              <div class="form-control-feedback">
-              <p *ngIf="title.errors && title.errors.required">title is required</p>
+              <p *ngIf="title.errors && title.errors.required"> title is required</p>
+              <p *ngIf="title.errors && title.errors.minlength">minimun 5 caracteres</p>
+              <p *ngIf="title.errors && title.errors.maxlength">maximum 100 caracteres</p>
             </div>
   
             <label>Body</label>
             <input type="text"
                    class="form-control"
-                   formControlName="userId">
+                   formControlName="body">
         
                <div class="form-control-feedback">
-                <p *ngIf="title.errors && title.errors.required">body is required</p>
-              </div>
-        
-      
-      
-      
-      
-      
-      
+                <p *ngIf="body.errors && body.errors.required">body is required</p>
+              </div>      
       
       
           <button type="submit" class="btn btn-primary" >Submit</button>
