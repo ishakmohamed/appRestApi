@@ -2,29 +2,18 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">userId</th>
+        <th scope="col">title</th>
+        <th scope="col">edit</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+    
+    <tr *ngFor="let post of dataToDisplay">
+        <td>{{post.id}}</td>
+        <td>{{post.userId}}</td>
+        <td>{{post.title}}</td>
+        <td><a [routerLink]="['/product/', post.id]">{{post.id}}</a></td>
+    </tr>
     </tbody>
   </table>

@@ -1,0 +1,43 @@
+<form validateFromPost
+      [formGroup]="postGroupDetails"
+      (ngSubmit)="onSubmit()">
+<div class="form-group">
+        <label>userId</label>
+        <input type="text"
+               class="form-control"
+               formControlName="userId">
+    
+           <div class="form-control-feedback">
+            <p *ngIf="userId.errors && userId.errors.required">userID is required</p>
+          </div>
+
+          <label>Title</label>
+          <input type="text"
+                 class="form-control"
+                 formControlName="userId">
+      
+             <div class="form-control-feedback">
+              <p *ngIf="title.errors && title.errors.required">title is required</p>
+            </div>
+  
+            <label>Body</label>
+            <input type="text"
+                   class="form-control"
+                   formControlName="userId">
+        
+               <div class="form-control-feedback">
+                <p *ngIf="title.errors && title.errors.required">body is required</p>
+              </div>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+          <button type="submit" class="btn btn-primary" >Submit</button>
+
+    </div>
+</form>
