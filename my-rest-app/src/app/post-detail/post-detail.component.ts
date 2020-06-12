@@ -70,7 +70,7 @@ export class PostDetailComponent implements OnInit {
         this.createNewPost();
         }
 
-        this.postGroupDetails.reset();
+      //  this.postGroupDetails.reset();
     }
   }
 
