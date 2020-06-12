@@ -30,7 +30,7 @@ export class UserDataService {
   }
 
   async createUserData( dataPostTosend){
-    const responce = await this.http.post('https://jsonplaceholder.typicode.com/posts' , dataPostTosend ).toPromise();
+     await this.http.post('https://jsonplaceholder.typicode.com/posts' , dataPostTosend ).toPromise();
   }
 
   async getAllUser(){
