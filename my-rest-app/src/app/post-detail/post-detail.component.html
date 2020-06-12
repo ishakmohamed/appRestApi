@@ -9,10 +9,11 @@
     <select class="form-control select_style1" [(ngModel)]='listOfuser.userId' formControlName='userId' #userId>
     <option value="" >Select Model</option>
     <option  *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</option>
+  
     </select>
-           <div class="form-control-feedback">
-            <p *ngIf="userId.errors && userId.errors.required">userID is required</p>
-          </div>
+    <div class="form-control-feedback">      
+      <p *ngIf="postGroupDetails.controls.userId.errors && postGroupDetails.controls.userId.errors.required">userID is required</p>
+    </div>
           <label>Title</label>
           <input type="text"
                  class="form-control"

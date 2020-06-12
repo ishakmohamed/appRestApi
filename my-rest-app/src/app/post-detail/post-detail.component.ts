@@ -61,15 +61,27 @@ export class PostDetailComponent implements OnInit {
   }
 
     onSubmit() {
+      console.log(this.postGroupDetails);
       if (this.postGroupDetails.valid) {
+
+        if (this.isPostUpdate){
+          this.updatePost();
+        }else{
         this.createNewPost();
+        }
+
         this.postGroupDetails.reset();
     }
   }
 
   async createNewPost(){
-    console.log(this.postGroupDetails.value);
+    console.log(this.postGroupDetails);
     await this.userDataService.createUserData(this.postGroupDetails.value);
+  }
+
+  async updatePost(){
+    console.log(this.postGroupDetails);
+    await this.userDataService.updateUserDataById(this.idOfUser, this.postGroupDetails.value);
   }
   async getAllUser(){
   this.allUsers = await this.userDataService.getAllUser();

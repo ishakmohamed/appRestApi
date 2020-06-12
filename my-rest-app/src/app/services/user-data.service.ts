@@ -18,8 +18,15 @@ export class UserDataService {
     return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + userId).toPromise();
   }
 
-  async updateUserDataById(userId , dataPostTosend){
-    return this.http.put('https://jsonplaceholder.typicode.com/posts?userId=' + userId , dataPostTosend ).toPromise();
+  async updateUserDataById(id , dataPostTosend){
+    const finalDataTosend = {
+      id ,
+      title: dataPostTosend.title ,
+      userId: dataPostTosend.userId ,
+      body: dataPostTosend.body
+
+    };
+    return this.http.put('https://jsonplaceholder.typicode.com/posts/' + id , finalDataTosend ).toPromise();
   }
 
   async createUserData( dataPostTosend){
