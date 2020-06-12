@@ -1,17 +1,21 @@
+
+<button type="button" class="btn btn-primary margin-top-table" >create Post</button>
+
+
 <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">userId</th>
+        <th scope="col">name Of user</th>
         <th scope="col">title</th>
         <th scope="col">edit</th>
       </tr>
     </thead>
     <tbody>
     
-    <tr *ngFor="let post of dataToDisplay">
+    <tr *ngFor="let post of dataToDisplayWithName">
         <td>{{post.id}}</td>
-        <td>{{post.userId}}</td>
+        <td>{{post.name}}</td>
         <td>{{post.title}}</td>
         <td><a [routerLink]="['/product/', post.id]">{{post.id}}</a></td>
     </tr>

@@ -9,14 +9,19 @@ import { Router } from '@angular/router';
 })
 export class DisplayPostComponent implements OnInit {
   public dataToDisplay: any ;
+  public dataToDisplayWithName: any;
+  public listOfusers: any ;
 
   constructor( public userData: UserDataService , private router: Router) {
    this.dataToDisplay = [];
+   this.dataToDisplayWithName = [];
   }
 
   async ngOnInit(){
   this.dataToDisplay = await this.userData.getUserData();
-  console.log('test', this.dataToDisplay);
+  this.listOfusers = await this.userData.getAllUser();
+  this.addNameTolistOfPost();
+  this.dataToDisplayWithName = this.addNameTolistOfPost();
  }
 
  selectPost(url , postId){
@@ -30,5 +35,14 @@ export class DisplayPostComponent implements OnInit {
   });
 
  }
+
+ addNameTolistOfPost(){
+   const listwithName = [];
+   this.dataToDisplay.forEach((data , index) => {
+    const userFiltred = this.listOfusers.find((user: any) => user.id === data.userId);
+    listwithName.push({ id: data.id ,   userId: data.userId , title: data.title ,  name: userFiltred.name} );
+  });
+   return listwithName;
+}
 
 }

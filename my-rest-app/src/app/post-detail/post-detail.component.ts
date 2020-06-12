@@ -57,7 +57,6 @@ export class PostDetailComponent implements OnInit {
   }
 
     onSubmit() {
-
       console.log(this.postGroupDetails);
       if (this.postGroupDetails.valid) {
       console.log('Form Submitted!');

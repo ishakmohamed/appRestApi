@@ -9,10 +9,25 @@ export class UserDataService {
   }
 
 /**
- * return all data of user 
+ * return all data of user
  */
-  async getUserData( ) {
+  async getUserData() {
     return this.http.get('https://jsonplaceholder.typicode.com/posts').toPromise();
   }
+  async getUserDataById(userId){
+    return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + userId).toPromise();
+  }
+
+  async updateUserDataById(userId , dataPostTosend){
+    return this.http.put('https://jsonplaceholder.typicode.com/posts?userId=' + userId , dataPostTosend ).toPromise();
+  }
+
+  async createUserData( dataPostTosend){
+    return this.http.post('https://jsonplaceholder.typicode.com/posts' , dataPostTosend ).toPromise();
+  }
+
+  async getAllUser(){
+    return this.http.get('https://jsonplaceholder.typicode.com/users' ).toPromise();
+   }
 
 }
