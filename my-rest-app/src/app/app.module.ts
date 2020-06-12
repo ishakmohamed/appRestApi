@@ -7,6 +7,7 @@ import { DisplayPostComponent } from './display-post/display-post.component';
 import { UserDataService } from './services/user-data.service';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    DropdownModule
   ],
   providers: [UserDataService],
   bootstrap: [AppComponent]

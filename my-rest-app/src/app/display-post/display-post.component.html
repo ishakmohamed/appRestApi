@@ -1,7 +1,5 @@
 
-<button type="button" class="btn btn-primary margin-top-table" >create Post</button>
-
-
+ <a [routerLink]="['/product/']"><button class="btn btn-success" > Submit </button></a>
 <table class="table">
     <thead>
       <tr>
@@ -14,10 +12,12 @@
     <tbody>
     
     <tr *ngFor="let post of dataToDisplayWithName">
-        <td>{{post.id}}</td>
+        <td>{{post.id}}  </td>
         <td>{{post.name}}</td>
         <td>{{post.title}}</td>
-        <td><a [routerLink]="['/product/', post.id]">{{post.id}}</a></td>
+        <td> <a [routerLink]="['/product/', post.id]"><i class="fa fa-pencil"></i></a>
+       
+        </td>
     </tr>
     </tbody>
   </table>

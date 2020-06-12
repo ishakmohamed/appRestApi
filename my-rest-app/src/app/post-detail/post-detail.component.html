@@ -1,16 +1,18 @@
+
+
+
 <form validateFromPost
       [formGroup]="postGroupDetails"
       (ngSubmit)="onSubmit()">
 <div class="form-group">
-        <label>userId</label>
-        <input type="text"
-               class="form-control"
-               formControlName="userId">
-    
+  
+    <select class="form-control select_style1" [(ngModel)]='listOfuser.userId' formControlName='userId' #userId>
+    <option value="" >Select Model</option>
+    <option  *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</option>
+    </select>
            <div class="form-control-feedback">
             <p *ngIf="userId.errors && userId.errors.required">userID is required</p>
           </div>
-
           <label>Title</label>
           <input type="text"
                  class="form-control"

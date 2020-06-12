@@ -8,6 +8,7 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -21,12 +22,14 @@ export class PostDetailComponent implements OnInit {
   body: FormControl;
   idOfUser: string ;
   isPostUpdate: boolean;
-
-  constructor( private route: ActivatedRoute) {
+  listOfuser: any ;
+  allUsers: any;
+  constructor( private route: ActivatedRoute, public userDataService: UserDataService) {
     this.isPostUpdate = false ;
+    this.listOfuser = {};
   }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.route.params.subscribe(params => {
     console.log(params);
     if (params && params.id){
@@ -36,6 +39,7 @@ export class PostDetailComponent implements OnInit {
     });
     this.createFormControlsPostDetails();
     this.createFormGroupPostDetails();
+    this.getAllUser();
   }
 
   createFormControlsPostDetails() {
@@ -57,15 +61,17 @@ export class PostDetailComponent implements OnInit {
   }
 
     onSubmit() {
-      console.log(this.postGroupDetails);
       if (this.postGroupDetails.valid) {
-      console.log('Form Submitted!');
-      console.log(this.postGroupDetails.value);
-      this.postGroupDetails.reset();
+        this.createNewPost();
+        this.postGroupDetails.reset();
     }
   }
 
-  getInfoPost(){
-
+  async createNewPost(){
+    console.log(this.postGroupDetails.value);
+    await this.userDataService.createUserData(this.postGroupDetails.value);
+  }
+  async getAllUser(){
+  this.allUsers = await this.userDataService.getAllUser();
   }
 }
