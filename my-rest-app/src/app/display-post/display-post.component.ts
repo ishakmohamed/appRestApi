@@ -38,7 +38,7 @@ export class DisplayPostComponent implements OnInit {
 
  addNameTolistOfPost(){
    const listwithName = [];
-   this.dataToDisplay.forEach((data , index) => {
+   this.dataToDisplay.forEach((data) => {
     const userFiltred = this.listOfusers.find((user: any) => user.id === data.userId);
     listwithName.push({ id: data.id ,   userId: data.userId , title: data.title ,  name: userFiltred.name} );
   });
