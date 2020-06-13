@@ -35,6 +35,13 @@ describe('PostDetailComponent', () => {
     expect(formControlPost.get('userId').valid).toEqual(true);
   });
 
+  it('body is required', () => {
+    const  formControlPost = component.postGroupDetails;
+    expect(formControlPost.get('body').valid).toEqual(false);
+    formControlPost.get('body').setValue('bodyvalue');
+    expect(formControlPost.get('body').valid).toEqual(true);
+  });
+
   it('title is required', () => {
     const  formControlPost = component.postGroupDetails;
     expect(formControlPost.get('title').valid).toEqual(false);
@@ -42,10 +49,24 @@ describe('PostDetailComponent', () => {
     expect(formControlPost.get('title').valid).toEqual(true);
   });
 
-  it('test title minLength = 5 ', () => {
+  it('test title minLength < 5 ', () => {
     const  formControlPost = component.postGroupDetails;
     expect(formControlPost.get('title').valid).toEqual(false);
-    formControlPost.get('title').setValue('ishak mohamed');
+    formControlPost.get('title').setValue('1234');
+    expect(formControlPost.get('title').valid).toEqual(false);
+  });
+
+  it('test title maxLength > 100 ', () => {
+    const  formControlPost = component.postGroupDetails;
+    expect(formControlPost.get('title').valid).toEqual(false);
+    formControlPost.get('title').setValue('https://www.google.com/search?rlz=1C1GCEA_enCA880CA880&sxsrf=ALeKk03oZiTyv37-VrAWCgAv5SyU5khYeA%3A1592078848965&ei=ADLl');
+    expect(formControlPost.get('title').valid).toEqual(false);
+  });
+
+  it('test title length between 5 and 100 ', () => {
+    const  formControlPost = component.postGroupDetails;
+    expect(formControlPost.get('title').valid).toEqual(false);
+    formControlPost.get('title').setValue('1234567');
     expect(formControlPost.get('title').valid).toEqual(true);
   });
 
