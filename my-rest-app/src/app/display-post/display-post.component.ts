@@ -25,8 +25,8 @@ export class DisplayPostComponent implements OnInit {
  }
 
  selectPost(url , postId){
-  const  myurl = `${url}/${postId}`;
-  this.router.navigateByUrl(myurl).then(e => {
+  const  urlToNavigate = `${url}/${postId}`;
+  this.router.navigateByUrl(urlToNavigate).then(e => {
     if (e) {
       console.log('Navigation is successful!');
     } else {
