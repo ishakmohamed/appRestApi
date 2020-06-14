@@ -4,6 +4,7 @@ import { PostDetailComponent } from './post-detail.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PostDetailComponent', () => {
   let component: PostDetailComponent;
@@ -13,7 +14,7 @@ describe('PostDetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PostDetailComponent ],
       providers: [HttpClient, HttpHandler],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientModule],
     })
     .compileComponents();
   }));
